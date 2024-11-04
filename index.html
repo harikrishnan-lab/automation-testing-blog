@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium & Playwright Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles for tabs and content */
+        body { font-family: Arial, sans-serif; }
+        .tabs { display: flex; background-color: #f1f1f1; }
+        .tab { padding: 14px 20px; cursor: pointer; }
+        .tab:hover { background-color: #ddd; }
+        .tab.active { background-color: #ccc; }
+        .tab-content { display: none; padding: 20px; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <div class="tab" onclick="openTab('selenium')">Selenium</div>
+        <div class="tab" onclick="openTab('playwright')">Playwright</div>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="selenium" class="tab-content">
+        <h2>Selenium Tutorial</h2>
+        <ul>
+            <li><a href="selenium/introduction.html">Introduction</a></li>
+            <li><a href="selenium/architecture.html">Architecture</a></li>
+            <li><a href="selenium/commands.html">Commands</a></li>
+            <li><a href="selenium/relative_locators.html">Relative Locators</a></li>
+            <!-- Add more subheadings as needed -->
+        </ul>
+    </div>
+
+    <div id="playwright" class="tab-content">
+        <h2>Playwright Tutorial</h2>
+        <ul>
+            <li><a href="playwright/introduction.html">Introduction</a></li>
+            <li><a href="playwright/architecture.html">Architecture</a></li>
+            <li><a href="playwright/locators.html">Locators</a></li>
+            <li><a href="playwright/mouse_keyboard_actions.html">Mouse & Keyboard Actions</a></li>
+            <!-- Add more subheadings as needed -->
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript function to manage tab behavior
+        function openTab(tabName) {
+            let tabs = document.getElementsByClassName("tab");
+            let contents = document.getElementsByClassName("tab-content");
+
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            event.target.classList.add("active");
+        }
+        
+        // Initialize with Selenium tab open
+        document.addEventListener("DOMContentLoaded", function() {
+            openTab('selenium');
+        });
+    </script>
+
+</body>
+</html>
